@@ -1,0 +1,116 @@
+{extend name='./common/layout'}
+
+{block name='mid'}
+
+<h3>管理</h3>
+<div class="container">
+	<div class="row clearfix">
+		<div class="box">
+            <div class="box-header">
+                <h3 class="box-title">公司动态文章设置</h3>
+                <div class="box-tools">
+                    <a href="{:url('Active/addmenu')}" class="btn btn-block btn-info btn-xs" style="width: 50px">新增</a>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>
+							编号
+						</th>
+						<th>
+							缩略图
+						</th>
+						<th>
+							标题
+						</th>
+						<th>
+							时间
+						</th>
+						<th>
+							操作
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+				{volist name="contents" id="ct"}
+					<tr>
+						<td>
+							{$ct.id}
+						</td>
+						<td>
+						<img id="imgshow" src="__ROOT__{$ct.img}" alt="" style="width: 50px; height: 50px;"/>
+						</td>
+						<td>
+							{$ct.title}
+						</td>
+						<td>
+							{$ct.date}
+						</td>
+						<td>
+							<a href="{:url('Manage/preview')}?id={$ct.id}" class="btn btn-block btn-info btn-xs" style="width: 50px">预览</a>
+							<a href="{:url('Managedb/delete_active')}?id={$ct.id}" style="width: 50px" class="btn btn-block btn-danger btn-xs delete-btn">删除</a>
+						</td>
+					</tr>
+				 {/volist}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="row clearfix">
+		<div class="box">
+            <div class="box-header">
+                <h3 class="box-title">招聘管理</h3>
+                <div class="box-tools">
+                    <a href="{:url('Job/jobview')}" class="btn btn-block btn-info btn-xs" style="width: 50px">新增</a>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>
+							编号
+						</th>
+						<th>
+							职位
+						</th>
+						<th>
+							时间
+						</th>
+						<th>
+							操作
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+				{volist name="jobd" id="jd"}
+					<tr>
+						<td>
+							{$jd.id}
+						</td>
+						<td>
+							{$jd.name}
+						</td>
+						<td>
+							{$jd.date}
+						</td>
+						<td>
+							<a href="{:url('Managedb/delete_job')}?id={$jd.id}" style="width: 50px" class="btn btn-block btn-danger btn-xs delete-btn">删除</a>
+						</td>
+					</tr>
+				 {/volist}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+{/block}
+
+   
