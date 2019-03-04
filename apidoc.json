@@ -1,0 +1,8 @@
+{
+    "name": "yulang-server",
+    "version": "1.0.0",
+    "description": "yulang-server API项目API文档",
+    "title": "yulang-server API",
+    "url": "http://localhost/yulang",
+    "forceLanguage": "zh-cn"
+  }
